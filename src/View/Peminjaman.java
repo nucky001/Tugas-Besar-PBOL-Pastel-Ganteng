@@ -1,5 +1,11 @@
 package View;
 
+import Control.MobilDAO;
+import Control.PegawaiDAO;
+import Control.PeminjamDAO;
+import Model.Karyawan;
+import Model.Mobil;
+import Model.Peminjam;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -15,14 +21,47 @@ import javax.swing.table.DefaultTableModel;
 public class Peminjaman extends javax.swing.JFrame {
     String col[] = {"No Identitas", "Nama", "Tanggal Pinjam", "Tanggal Jatuh Tempo", "Kode Mobil", "Plat No", "Kode Pegawai"};
     DefaultTableModel tab = new DefaultTableModel(col,0);
+    PeminjamDAO daoP = new PeminjamDAO();
+    MobilDAO daoPm = new MobilDAO();
+    PegawaiDAO daoPma = new PegawaiDAO();
     /**
      * Creates new form ListBuku
      */
     public Peminjaman() {
         initComponents();
         setLocationRelativeTo(null);
+        Listidentitas();
+        Listmobil();
+        Listpegawai();
+    }
+    public void Listidentitas()
+    {
+        Peminjam bb = new Peminjam();
+        for(Peminjam b : daoP.getAllPeminjam())
+        {
+                identitas.addItem(b.getNomoridentitas());
+        }
     }
     
+    public void Listmobil()
+    {
+        Mobil bb = new Mobil();
+        for(Mobil b : daoPm.getAllMobil())
+        {
+                kode.addItem(b.getKodemobil());
+        }
+    }
+    
+    public void Listpegawai()
+    {
+        Karyawan bb = new Karyawan();
+        pegawai.addItem("Pilih");
+        for(Karyawan b : daoPma.getAllPegawai())
+        {
+                pegawai.addItem(b.getKodepegawai());
+        }
+        
+    }
 //    public Date getDate(int tambah){
 //        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
 //        Date date = new Date();
@@ -95,12 +134,12 @@ public class Peminjaman extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        judul = new javax.swing.JTextField();
+        plat = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        isbn = new javax.swing.JComboBox<>();
+        kode = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        kdpegawai = new javax.swing.JComboBox<>();
+        pegawai = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabel = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
@@ -110,9 +149,9 @@ public class Peminjaman extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        nrp = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        identitas = new javax.swing.JComboBox<>();
+        pinjam = new com.toedter.calendar.JDateChooser();
+        tempo = new com.toedter.calendar.JDateChooser();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
@@ -131,10 +170,10 @@ public class Peminjaman extends javax.swing.JFrame {
 
         jLabel3.setText("Plat No");
 
-        judul.setEditable(false);
-        judul.addActionListener(new java.awt.event.ActionListener() {
+        plat.setEditable(false);
+        plat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                judulActionPerformed(evt);
+                platActionPerformed(evt);
             }
         });
 
@@ -152,27 +191,27 @@ public class Peminjaman extends javax.swing.JFrame {
             }
         });
 
-        isbn.addItemListener(new java.awt.event.ItemListener() {
+        kode.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                isbnItemStateChanged(evt);
+                kodeItemStateChanged(evt);
             }
         });
-        isbn.addActionListener(new java.awt.event.ActionListener() {
+        kode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                isbnActionPerformed(evt);
+                kodeActionPerformed(evt);
             }
         });
 
         jLabel8.setText("Kode Pegawai");
 
-        kdpegawai.addItemListener(new java.awt.event.ItemListener() {
+        pegawai.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                kdpegawaiItemStateChanged(evt);
+                pegawaiItemStateChanged(evt);
             }
         });
-        kdpegawai.addActionListener(new java.awt.event.ActionListener() {
+        pegawai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                kdpegawaiActionPerformed(evt);
+                pegawaiActionPerformed(evt);
             }
         });
 
@@ -197,7 +236,7 @@ public class Peminjaman extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addComponent(kdpegawai, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(pegawai, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,8 +244,8 @@ public class Peminjaman extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(76, 76, 76)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(judul)
-                            .addComponent(isbn, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(plat)
+                            .addComponent(kode, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(17, 17, 17))
         );
 
@@ -218,14 +257,14 @@ public class Peminjaman extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(isbn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(kode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(judul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(plat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(kdpegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pegawai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,7 +287,7 @@ public class Peminjaman extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Data Peminjam"));
 
-        jLabel6.setText("Identitas");
+        jLabel6.setText("Kode Identitas");
 
         nama.setEditable(false);
         nama.addActionListener(new java.awt.event.ActionListener() {
@@ -263,9 +302,9 @@ public class Peminjaman extends javax.swing.JFrame {
 
         jLabel7.setText("Tanggal Jatuh Tempo");
 
-        nrp.addItemListener(new java.awt.event.ItemListener() {
+        identitas.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                nrpItemStateChanged(evt);
+                identitasItemStateChanged(evt);
             }
         });
 
@@ -283,9 +322,9 @@ public class Peminjaman extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nama)
-                    .addComponent(nrp, 0, 124, Short.MAX_VALUE)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(identitas, 0, 124, Short.MAX_VALUE)
+                    .addComponent(pinjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         jPanel2Layout.setVerticalGroup(
@@ -294,7 +333,7 @@ public class Peminjaman extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(nrp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(identitas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -302,11 +341,11 @@ public class Peminjaman extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -395,7 +434,7 @@ public class Peminjaman extends javax.swing.JFrame {
 //        dataBuku();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void isbnItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_isbnItemStateChanged
+    private void kodeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_kodeItemStateChanged
 //        for(Listbuku b : daoBuku.getAllBuku())
 //        {
 //            if(b.getIsbn().equals(isbn.getSelectedItem()))
@@ -403,7 +442,7 @@ public class Peminjaman extends javax.swing.JFrame {
 //                judul.setText(b.getJudul());
 //            }
 //        }
-    }//GEN-LAST:event_isbnItemStateChanged
+    }//GEN-LAST:event_kodeItemStateChanged
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 //        int a = tabel.getSelectedRow();
@@ -447,11 +486,11 @@ public class Peminjaman extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void isbnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isbnActionPerformed
+    private void kodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_isbnActionPerformed
+    }//GEN-LAST:event_kodeActionPerformed
 
-    private void nrpItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nrpItemStateChanged
+    private void identitasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_identitasItemStateChanged
 //        for(Listmember b : daoMember.getAllMember())
 //        {
 //            if(b.getNrp().equals(nrp.getSelectedItem()))
@@ -459,11 +498,11 @@ public class Peminjaman extends javax.swing.JFrame {
 //                nama.setText(b.getNama());
 //            }
 //        }
-    }//GEN-LAST:event_nrpItemStateChanged
+    }//GEN-LAST:event_identitasItemStateChanged
 
-    private void judulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_judulActionPerformed
+    private void platActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_platActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_judulActionPerformed
+    }//GEN-LAST:event_platActionPerformed
 
     private void namaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaActionPerformed
 //        for(Listmember b : daoMember.getAllMember())
@@ -475,13 +514,13 @@ public class Peminjaman extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_namaActionPerformed
 
-    private void kdpegawaiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_kdpegawaiItemStateChanged
+    private void pegawaiItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_pegawaiItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_kdpegawaiItemStateChanged
+    }//GEN-LAST:event_pegawaiItemStateChanged
 
-    private void kdpegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kdpegawaiActionPerformed
+    private void pegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pegawaiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_kdpegawaiActionPerformed
+    }//GEN-LAST:event_pegawaiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -522,15 +561,13 @@ public class Peminjaman extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> isbn;
+    private javax.swing.JComboBox<String> identitas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JCheckBox jCheckBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooserBeanInfo jDateChooserBeanInfo1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -543,10 +580,12 @@ public class Peminjaman extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField judul;
-    private javax.swing.JComboBox<String> kdpegawai;
+    private javax.swing.JComboBox<String> kode;
     private javax.swing.JTextField nama;
-    private javax.swing.JComboBox<String> nrp;
+    private javax.swing.JComboBox<String> pegawai;
+    private com.toedter.calendar.JDateChooser pinjam;
+    private javax.swing.JTextField plat;
     private javax.swing.JTable tabel;
+    private com.toedter.calendar.JDateChooser tempo;
     // End of variables declaration//GEN-END:variables
 }

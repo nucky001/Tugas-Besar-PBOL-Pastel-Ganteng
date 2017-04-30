@@ -20,11 +20,11 @@ public class PenggajianView extends javax.swing.JFrame {
     public PenggajianView() {
         initComponents();
         setLocationRelativeTo(null);
-        Listmobil();
+        Listpegawai();
     }
     
     
-    public void Listmobil()
+    public void Listpegawai()
     {
         Karyawan bb = new Karyawan();
         for(Karyawan b : daoPm.getAllPegawai())
