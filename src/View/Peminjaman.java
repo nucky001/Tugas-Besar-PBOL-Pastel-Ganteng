@@ -435,13 +435,13 @@ public class Peminjaman extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void kodeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_kodeItemStateChanged
-//        for(Listbuku b : daoBuku.getAllBuku())
-//        {
-//            if(b.getIsbn().equals(isbn.getSelectedItem()))
-//            {
-//                judul.setText(b.getJudul());
-//            }
-//        }
+        for(Mobil b : daoPm.getAllMobil())
+        {
+            if(b.getKodemobil().equals(kode.getSelectedItem()))
+            {
+                plat.setText(b.getPlatnomor());
+            }
+        }
     }//GEN-LAST:event_kodeItemStateChanged
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -491,13 +491,13 @@ public class Peminjaman extends javax.swing.JFrame {
     }//GEN-LAST:event_kodeActionPerformed
 
     private void identitasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_identitasItemStateChanged
-//        for(Listmember b : daoMember.getAllMember())
-//        {
-//            if(b.getNrp().equals(nrp.getSelectedItem()))
-//            {
-//                nama.setText(b.getNama());
-//            }
-//        }
+        for(Peminjam b : daoP.getAllPeminjam())
+        {
+            if(b.getNomoridentitas().equals(identitas.getSelectedItem()))
+            {
+                nama.setText(b.getNamalengkap());
+            }
+        }
     }//GEN-LAST:event_identitasItemStateChanged
 
     private void platActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_platActionPerformed
