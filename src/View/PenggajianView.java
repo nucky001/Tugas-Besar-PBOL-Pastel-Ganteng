@@ -2,18 +2,22 @@ package View;
 
 import Control.MobilDAO;
 import Control.PegawaiDAO;
+import Control.PenggajianDAO;
 import Model.Karyawan;
 import Model.Mobil;
+import Model.Penggajian;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author 1573001, 1573004
  *         Nucky, Adiel
  */
-public class Penggajian extends javax.swing.JFrame {
+public class PenggajianView extends javax.swing.JFrame {
     PegawaiDAO daoPm = new PegawaiDAO();
+    PenggajianDAO daoPma = new PenggajianDAO();
     
-    public Penggajian() {
+    public PenggajianView() {
         initComponents();
         setLocationRelativeTo(null);
         Listmobil();
@@ -239,20 +243,32 @@ public class Penggajian extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         double valueOne = Double.parseDouble(gaji.getText());
         double valueTwo = Double.parseDouble(potong.getText());
-        double sumOfValues = valueOne + valueTwo;
+        double sumOfValues = valueOne - valueTwo;
         String numberAsString = Double.toString(sumOfValues);
         total.setText(numberAsString);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        try{
+            Penggajian pp = new Penggajian();
+                Karyawan p = new Karyawan();
+                p.setKodepegawai(kode.getSelectedItem().toString());
+                pp.setKodepegawai(p);
+                pp.setTotalgaji(total.getText());
+                daoPma.simpanAtauUpdatePeminjam(pp);
+                JOptionPane.showMessageDialog(this, "Data Telah Disimpan!");
+                clear();
+        }catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Data gagal disimpan");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
     public static void main(String args[]) {
        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Penggajian().setVisible(true);
+                new PenggajianView().setVisible(true);
             }
         });
     }
