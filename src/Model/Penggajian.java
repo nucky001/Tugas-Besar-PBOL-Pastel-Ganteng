@@ -35,9 +35,6 @@ public class Penggajian implements Serializable {
     @Column(name = "kodepenggajian")
     private Integer kodepenggajian;
     @Basic(optional = false)
-    @Column(name = "totalcuti")
-    private String totalcuti;
-    @Basic(optional = false)
     @Column(name = "totalgaji")
     private String totalgaji;
     @JoinColumn(name = "kodepegawai", referencedColumnName = "kodepegawai")
@@ -51,9 +48,8 @@ public class Penggajian implements Serializable {
         this.kodepenggajian = kodepenggajian;
     }
 
-    public Penggajian(Integer kodepenggajian, String totalcuti, String totalgaji) {
+    public Penggajian(Integer kodepenggajian, String totalgaji) {
         this.kodepenggajian = kodepenggajian;
-        this.totalcuti = totalcuti;
         this.totalgaji = totalgaji;
     }
 
@@ -63,14 +59,6 @@ public class Penggajian implements Serializable {
 
     public void setKodepenggajian(Integer kodepenggajian) {
         this.kodepenggajian = kodepenggajian;
-    }
-
-    public String getTotalcuti() {
-        return totalcuti;
-    }
-
-    public void setTotalcuti(String totalcuti) {
-        this.totalcuti = totalcuti;
     }
 
     public String getTotalgaji() {
