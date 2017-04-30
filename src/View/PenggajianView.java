@@ -258,8 +258,7 @@ public class PenggajianView extends javax.swing.JFrame {
                 daoPma.simpanAtauUpdatePeminjam(pp);
                 JOptionPane.showMessageDialog(this, "Data Telah Disimpan!");
                 clear();
-        }catch(Exception e)
-        {
+        }catch(Exception e){
             JOptionPane.showMessageDialog(this, "Data gagal disimpan");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
