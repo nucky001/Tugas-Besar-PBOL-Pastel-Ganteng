@@ -260,7 +260,7 @@ public class PenggajianView extends javax.swing.JFrame {
                 clear();
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "Data gagal disimpan");
-        }//test123
+        }//test12311
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
