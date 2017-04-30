@@ -21,7 +21,7 @@ public class PenggajianView extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         Listpegawai();
-    }
+    }//test commit ke development
     
     
     public void Listpegawai()
