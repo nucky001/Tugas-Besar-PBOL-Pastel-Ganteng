@@ -281,7 +281,7 @@ public class Pengembalian extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        PeminjamanPengembalian h = new PeminjamanPengembalian();
+        PeminjamanPengembalianView h = new PeminjamanPengembalianView();
         this.setVisible(false);
         h.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed

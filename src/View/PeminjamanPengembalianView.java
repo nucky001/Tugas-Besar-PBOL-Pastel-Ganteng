@@ -5,12 +5,12 @@ package View;
  * @author 1573001, 1573004
  *         Nucky, Adiel
  */
-public class PeminjamanPengembalian extends javax.swing.JFrame {
+public class PeminjamanPengembalianView extends javax.swing.JFrame {
 
     /**
      * Creates new form PeminjamanPengembalian
      */
-    public PeminjamanPengembalian() {
+    public PeminjamanPengembalianView() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -123,20 +123,21 @@ public class PeminjamanPengembalian extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PeminjamanPengembalian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeminjamanPengembalianView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PeminjamanPengembalian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeminjamanPengembalianView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PeminjamanPengembalian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeminjamanPengembalianView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PeminjamanPengembalian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PeminjamanPengembalianView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PeminjamanPengembalian().setVisible(true);
+                new PeminjamanPengembalianView().setVisible(true);
             }
         });
     }

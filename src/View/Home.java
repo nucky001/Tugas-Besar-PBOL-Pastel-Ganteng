@@ -182,7 +182,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPegawaiActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PeminjamanPengembalian lb = new PeminjamanPengembalian();
+        PeminjamanPengembalianView lb = new PeminjamanPengembalianView();
         setVisible(false);
         lb.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
