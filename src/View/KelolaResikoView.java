@@ -356,156 +356,19 @@ public class KelolaResikoView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-//        try {
-//            if(nrp.getText().equals(""))
-//                JOptionPane.showMessageDialog(this, "Masukan Nama Pegawai");
-//            else if(nama.getText().equals(""))
-//                JOptionPane.showMessageDialog(this, "Masukan Nama Pegawai");
-//            else if(alamat.getText().equals(""))
-//                JOptionPane.showMessageDialog(this, "Masukan Alamat Pegawai");
-//            else if(notelp.getText().equals(""))
-//                JOptionPane.showMessageDialog(this, "Masukan No Telepon Pegawai");
-//            else {
-//                try
-//                {
-//                    int b = table.getSelectedRow();
-//                    String id = String.valueOf(table.getModel().getValueAt(b, 0));
-//                    Listmember pp = daoP.ambilMemberBerdasarkanId(id);
-//                    pp.setNrp(nrp.getText());
-//                    pp.setNama(nama.getText());
-//                    pp.setAlamat(alamat.getText());
-//                    pp.setNoTelepon(notelp.getText());
-//                    daoP.simpanAtauUpdateMember(pp);
-//                    JOptionPane.showMessageDialog(this, "Data berhasil di edit!");
-//                    printTable();
-//                }
-//                catch(Exception e)
-//                {
-//                    JOptionPane.showMessageDialog(this, "Data gagal diedit!");
-//                }
-//            }
-//        }
-//        catch(Exception e)
-//        {
-//            System.out.println(e.toString());
-//            JOptionPane.showMessageDialog(this, "Data gagal diedit");
-//        }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
-//        int index = table.getSelectedRow();
-//
-//        nrp.setText(table.getValueAt(index, 0).toString());
-//        nama.setText(table.getValueAt(index, 1).toString());
-//        alamat.setText(table.getValueAt(index,2).toString());
-//        notelp.setText(table.getValueAt(index,3).toString());
+
     }//GEN-LAST:event_tableMouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-//        a = table.getSelectedRow();
-//        if(a == -1)
-//        {
-//            JOptionPane.showMessageDialog(this, "Pilih data yang akan dihapus!");
-//        }
-//        else{
-//            int btn = JOptionPane.YES_NO_OPTION;
-//            int dialog = JOptionPane.showConfirmDialog (null, "Hapus Data?","Warning", btn);
-//             if(dialog == JOptionPane.YES_OPTION){
-//                String id = String.valueOf(table.getModel().getValueAt(a, 0));
-//                daoP.hapusMemberBerdasarkanId(id);
-//                JOptionPane.showMessageDialog(this, "Data berhasil dihapus!");
-//                table.repaint();
-//             }
-//             else
-//            {
-//                JOptionPane.showMessageDialog(this, "Data tidak dihapus!");
-//            }
-//        }
-//        a = -1;
-//        printTable();
-//        clear();
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-//        tab.getDataVector().removeAllElements();
-//        if(dasar.getSelectedIndex() == 0)
-//        {
-//            cari.setText("");
-//            printTable();
-//        }
-//        else if(dasar.getSelectedIndex() == 1)
-//        {
-//            for(Listmember pp : daoP.getAllMember())
-//            {
-//                if(cari.getText().equalsIgnoreCase(String.valueOf(pp.getNrp())))
-//                {
-//                    tab.addRow(
-//                        new Object[]
-//                        {
-//                            pp.getNrp(),
-//                            pp.getNama(),
-//                            pp.getAlamat(),
-//                            pp.getNoTelepon()
-//                        }
-//                    );
-//                }
-//            }
-//        }
-//        else if(dasar.getSelectedIndex() == 2)
-//        {
-//            for(Listmember pp : daoP.getAllMember())
-//            {
-//                if(cari.getText().equalsIgnoreCase(String.valueOf(pp.getNama())))
-//                {
-//                    tab.addRow(
-//                        new Object[]
-//                        {
-//                            pp.getNrp(),
-//                            pp.getNama(),
-//                            pp.getAlamat(),
-//                            pp.getNoTelepon()
-//                        }
-//                    );
-//                }
-//            }
-//        }
-//        else if(dasar.getSelectedIndex() == 3)
-//        {
-//            for(Listmember pp : daoP.getAllMember())
-//            {
-//                if(cari.getText().equalsIgnoreCase(String.valueOf(pp.getAlamat())))
-//                {
-//                    tab.addRow(
-//                        new Object[]
-//                        {
-//                            pp.getNrp(),
-//                            pp.getNama(),
-//                            pp.getAlamat(),
-//                            pp.getNoTelepon()
-//                        }
-//                    );
-//                }
-//            }
-//        }
-//        else if(dasar.getSelectedIndex() == 4)
-//        {
-//            for(Listmember pp : daoP.getAllMember())
-//            {
-//                if(cari.getText().equalsIgnoreCase(String.valueOf(pp.getNoTelepon())))
-//                {
-//                    tab.addRow(
-//                        new Object[]
-//                        {
-//                            pp.getNrp(),
-//                            pp.getNama(),
-//                            pp.getAlamat(),
-//                            pp.getNoTelepon()
-//                        }
-//                    );
-//                }
-//            }
-//        }
-//        table.repaint();
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     public static void main(String args[]) {

@@ -1,7 +1,6 @@
 package Control;
 
 import Model.Peminjamdanpengembalian;
-import View.PeminjamanPengembalianView;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -18,7 +17,7 @@ public class PeminjamanPengembalianDAO {
     static SessionFactory session = HibernateUtil.getSessionFactory();
     private Session sess;
     
-    List<PeminjamanPengembalianView> ods = new ArrayList<>();
+    List<Peminjamdanpengembalian> ods = new ArrayList<>();
     public PeminjamanPengembalianDAO()
     {
         sess = this.membukaSession();
@@ -44,7 +43,7 @@ public class PeminjamanPengembalianDAO {
         t.commit();
     }
     
-    public void hapusPPBerdasarkanId(String id)
+    public void hapusPPBerdasarkanId(int id)
     {
         Transaction t = sess.beginTransaction();
         Peminjamdanpengembalian s = (Peminjamdanpengembalian) this.ambilPPBerdasarkanId(id);
@@ -52,7 +51,7 @@ public class PeminjamanPengembalianDAO {
         t.commit();
     }
     
-    public Peminjamdanpengembalian ambilPPBerdasarkanId(String id)
+    public Peminjamdanpengembalian ambilPPBerdasarkanId(int id)
     {
         return (Peminjamdanpengembalian) sess.load(Peminjamdanpengembalian.class, id);
     }
