@@ -1,22 +1,22 @@
 package Control;
 
-import View.PeminjamanPengembalian;
+import Model.Peminjamdanpengembalian;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
+import org.hibernate.criterion.Order;
 /**
- *
- * @author ASUS
+ * @author 1573001, 1573004
+ *         Nucky, Adiel
  */
 public class PeminjamanPengembalianDAO {
     static SessionFactory session = HibernateUtil.getSessionFactory();
     private Session sess;
     
-    List<PeminjamanPengembalian> ods = new ArrayList<>();
+    List<Peminjamdanpengembalian> ods = new ArrayList<>();
     public PeminjamanPengembalianDAO()
     {
         sess = this.membukaSession();
@@ -25,36 +25,33 @@ public class PeminjamanPengembalianDAO {
     {
         return session.openSession();
     }
-    public PeminjamanPengembalian ambilDetailBerdasarkanId(int id)
+    public List<Peminjamdanpengembalian> getAllPP()
     {
-        return  (PeminjamanPengembalian) sess.load(PeminjamanPengembalian.class, id);
-    }
-    public List<PeminjamanPengembalian> getAllPeminjaman()
-    {
-        Criteria c = sess.createCriteria(PeminjamanPengembalian.class);
-        List<PeminjamanPengembalian> data = c.list();
+        Criteria c = sess.createCriteria(Peminjamdanpengembalian.class).addOrder(Order.asc("kodepeminjaman"));
+        List<Peminjamdanpengembalian> data = c.list();
         return data;
     }
-    public List<PeminjamanPengembalian> getAllPeminjamanDetail()
-    {
-        Criteria c = sess.createCriteria(PeminjamanPengembalian.class);
-        List<PeminjamanPengembalian> data = c.list();
-        return data;
-    }
-    public List<PeminjamanPengembalian> getALLPembelian() {
-        return ods;
-    }
-    public void deleteData(int index) {
-        ods.remove(index);
-    }
-    public void deleteAllData(){
-        ods.removeAll(ods);
+    public String getPPByID(int id) {
+        return sess.createQuery("SELECT s.status FROM peminjamdanpengembalian s WHERE s.kodepeminjaman = '" + id + "'").list().iterator().next().toString();
     }
     
-    public void simpanAtauUpdateDetail(PeminjamanPengembalian p)
+    public void simpanAtauUpdatepp(Peminjamdanpengembalian m)
     {
         Transaction t = sess.beginTransaction();
-        sess.saveOrUpdate(p);
+        sess.saveOrUpdate(m);
         t.commit();
+    }
+    
+    public void hapusPPBerdasarkanId(int id)
+    {
+        Transaction t = sess.beginTransaction();
+        Peminjamdanpengembalian s = (Peminjamdanpengembalian) this.ambilPPBerdasarkanId(id);
+        sess.delete(s);
+        t.commit();
+    }
+    
+    public Peminjamdanpengembalian ambilPPBerdasarkanId(int id)
+    {
+        return (Peminjamdanpengembalian) sess.load(Peminjamdanpengembalian.class, id);
     }
 }

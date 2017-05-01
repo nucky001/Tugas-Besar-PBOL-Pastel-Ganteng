@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.io.Serializable;
@@ -22,8 +17,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
- * @author ASUS
+ * @author 1573001, 1573004
+ *         Nucky, Adiel
  */
 @Entity
 @Table(name = "peminjamdanpengembalian")
@@ -45,9 +40,6 @@ public class Peminjamdanpengembalian implements Serializable {
     @Column(name = "tanggalpengembalian")
     @Temporal(TemporalType.DATE)
     private Date tanggalpengembalian;
-    @Basic(optional = false)
-    @Column(name = "lamapeminjaman")
-    private int lamapeminjaman;
     @Basic(optional = false)
     @Column(name = "status")
     private String status;
@@ -72,11 +64,10 @@ public class Peminjamdanpengembalian implements Serializable {
         this.kodepeminjaman = kodepeminjaman;
     }
 
-    public Peminjamdanpengembalian(Integer kodepeminjaman, Date tanggalpeminjaman, Date tanggalpengembalian, int lamapeminjaman, String status) {
+    public Peminjamdanpengembalian(Integer kodepeminjaman, Date tanggalpeminjaman, Date tanggalpengembalian, String status) {
         this.kodepeminjaman = kodepeminjaman;
         this.tanggalpeminjaman = tanggalpeminjaman;
         this.tanggalpengembalian = tanggalpengembalian;
-        this.lamapeminjaman = lamapeminjaman;
         this.status = status;
     }
 
@@ -102,14 +93,6 @@ public class Peminjamdanpengembalian implements Serializable {
 
     public void setTanggalpengembalian(Date tanggalpengembalian) {
         this.tanggalpengembalian = tanggalpengembalian;
-    }
-
-    public int getLamapeminjaman() {
-        return lamapeminjaman;
-    }
-
-    public void setLamapeminjaman(int lamapeminjaman) {
-        this.lamapeminjaman = lamapeminjaman;
     }
 
     public String getStatus() {

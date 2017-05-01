@@ -7,10 +7,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
-
 /**
- *
- * @author ASUS
+ * @author 1573001, 1573004
+ *         Nucky, Adiel
  */
 public class MobilDAO {
     static SessionFactory session = HibernateUtil.getSessionFactory();
