@@ -10,17 +10,13 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author 1573001, 1573004 Nucky, Adiel
+ * @author 1573001, 1573004
+ *         Nucky, Adiel
  */
 public class Pengembalian extends javax.swing.JFrame {
 
     PeminjamanPengembalianDAO daopp = new PeminjamanPengembalianDAO();
 
-    /**
-     * Creates new form ListBuku
-     */
-//    MemberDAO daoMember = new MemberDAO();
     public Pengembalian() {
         initComponents();
         setLocationRelativeTo(null);

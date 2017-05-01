@@ -9,7 +9,6 @@ import Model.Penggajian;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author 1573001, 1573004
  *         Nucky, Adiel
  */
@@ -21,7 +20,7 @@ public class PenggajianView extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         Listpegawai();
-    }//test commit ke development
+    }
     
     
     public void Listpegawai()
@@ -213,7 +212,9 @@ public class PenggajianView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
     private void clear() {
             kode.setSelectedIndex(0);
-        }
+            potong.setText("");
+            total.setText("");
+       }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Home h = new Home();
         this.setVisible(false);
@@ -260,7 +261,7 @@ public class PenggajianView extends javax.swing.JFrame {
                 clear();
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, "Data gagal disimpan");
-        }//Adiel juga testing
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     

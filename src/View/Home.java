@@ -3,7 +3,6 @@ package View;
 import Model.Mobil;
 
 /**
- *
  * @author 1573001, 1573004
  *         Nucky, Adiel
  */

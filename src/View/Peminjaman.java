@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *@author 1573001, 1573004
+ * @author 1573001, 1573004
  *         Nucky, Adiel
  */
 public class Peminjaman extends javax.swing.JFrame {
@@ -26,9 +26,7 @@ public class Peminjaman extends javax.swing.JFrame {
     MobilDAO daoPm = new MobilDAO();
     PegawaiDAO daoPma = new PegawaiDAO();
     PeminjamanPengembalianDAO daopp = new PeminjamanPengembalianDAO();
-    /**
-     * Creates new form ListBuku
-     */
+    
     public Peminjaman() {
         initComponents();
         setLocationRelativeTo(null);

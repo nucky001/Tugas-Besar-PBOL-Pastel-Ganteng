@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
  * @author 1573001, 1573004
  *         Nucky, Adiel
  */

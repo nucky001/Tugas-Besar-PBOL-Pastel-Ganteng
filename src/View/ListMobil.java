@@ -6,8 +6,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author 1573001, 1573004 Nucky, Adiel
+ * @author 1573001, 1573004
+ *         Nucky, Adiel
  */
 public class ListMobil extends javax.swing.JFrame {
 
