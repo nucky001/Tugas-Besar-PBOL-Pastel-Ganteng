@@ -386,14 +386,48 @@ public class Peminjaman extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        clearBuku();
+        clearBuku();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+         private void clearBuku() {
+        kode.setSelectedIndex(0);
+        pinjam.setDate(null);
+        tempo.setDate(null);
+        identitas.setSelectedIndex(0);
+        pegawai.setSelectedIndex(0);
+        printTable();
+        }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//Masukan Status Sedang Dipinjam
-
-//        dao.insertData(String.valueOf(isbn.getSelectedItem()), judul.getText());
-//        dataBuku();
+         try {
+            if(pinjam.getDate() == null)
+                JOptionPane.showMessageDialog(this, "Masukan Tanggal Peminjaman");
+            else if(tempo.getDate() == null)
+                JOptionPane.showMessageDialog(this, "Masukan Tanggal Pengembalian");
+            else {
+                Peminjamdanpengembalian pp = new Peminjamdanpengembalian();
+                pp.setTanggalpeminjaman(pinjam.getDate());
+                pp.setTanggalpengembalian(tempo.getDate());
+                Mobil p = new Mobil();
+                p.setKodemobil(kode.getSelectedItem().toString());
+                pp.setKodemobil(p);
+                Peminjam i = new Peminjam();
+                i.setNomoridentitas(identitas.getSelectedItem().toString());
+                pp.setNomoridentitas(i);
+                Karyawan pe = new Karyawan();
+                pe.setKodepegawai(pegawai.getSelectedItem().toString());
+                pp.setKodepegawai(pe);
+                pp.setStatus("Dipinjam");
+                daopp.simpanAtauUpdatepp(pp);
+                JOptionPane.showMessageDialog(this, "Data Telah Disimpan!");
+                printTable();
+                table.repaint();
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.toString());
+            JOptionPane.showMessageDialog(this, "Data gagal disimpan");
+        }
+        clearBuku();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void kodeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_kodeItemStateChanged
@@ -550,4 +584,6 @@ public class Peminjaman extends javax.swing.JFrame {
     private javax.swing.JTable table;
     private com.toedter.calendar.JDateChooser tempo;
     // End of variables declaration//GEN-END:variables
+
+   
 }

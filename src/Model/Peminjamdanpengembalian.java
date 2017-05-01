@@ -46,9 +46,6 @@ public class Peminjamdanpengembalian implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date tanggalpengembalian;
     @Basic(optional = false)
-    @Column(name = "lamapeminjaman")
-    private int lamapeminjaman;
-    @Basic(optional = false)
     @Column(name = "status")
     private String status;
     @Column(name = "lamaterlambat")
@@ -72,11 +69,10 @@ public class Peminjamdanpengembalian implements Serializable {
         this.kodepeminjaman = kodepeminjaman;
     }
 
-    public Peminjamdanpengembalian(Integer kodepeminjaman, Date tanggalpeminjaman, Date tanggalpengembalian, int lamapeminjaman, String status) {
+    public Peminjamdanpengembalian(Integer kodepeminjaman, Date tanggalpeminjaman, Date tanggalpengembalian, String status) {
         this.kodepeminjaman = kodepeminjaman;
         this.tanggalpeminjaman = tanggalpeminjaman;
         this.tanggalpengembalian = tanggalpengembalian;
-        this.lamapeminjaman = lamapeminjaman;
         this.status = status;
     }
 
@@ -102,14 +98,6 @@ public class Peminjamdanpengembalian implements Serializable {
 
     public void setTanggalpengembalian(Date tanggalpengembalian) {
         this.tanggalpengembalian = tanggalpengembalian;
-    }
-
-    public int getLamapeminjaman() {
-        return lamapeminjaman;
-    }
-
-    public void setLamapeminjaman(int lamapeminjaman) {
-        this.lamapeminjaman = lamapeminjaman;
     }
 
     public String getStatus() {
