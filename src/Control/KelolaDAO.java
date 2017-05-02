@@ -47,7 +47,7 @@ public class KelolaDAO {
         t.commit();
     }
     
-    public void hapusKelolaResikoBerdasarkanId(String id)
+    public void hapusKelolaResikoBerdasarkanId(int id)
     {
         Transaction t = sess.beginTransaction();
         Kelolaresiko s = this.ambilKelolaResikoBerdasarkanId(id);
@@ -55,7 +55,7 @@ public class KelolaDAO {
         t.commit();
     }
     
-    public Kelolaresiko ambilKelolaResikoBerdasarkanId(String id)
+    public Kelolaresiko ambilKelolaResikoBerdasarkanId(int id)
     {
         return  (Kelolaresiko) sess.load(KelolaResikoView.class, id);
         
