@@ -22,6 +22,7 @@ public class Report1 extends javax.swing.JFrame {
 
     public Report1() {
         initComponents();
+        setLocationRelativeTo(null);
     }
     
     private Connection getConnection() {
@@ -77,7 +78,8 @@ public class Report1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Report");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Report Data");
 
         jButton1.setText("Data Mobil");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -118,17 +120,6 @@ public class Report1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)))
-                .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,6 +131,15 @@ public class Report1 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton5)
                         .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3, jButton4});
@@ -147,9 +147,9 @@ public class Report1 extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3))
@@ -167,26 +167,26 @@ public class Report1 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Date d = new Date();
-        String file = "D:\\workspace-netbeans\\TB1573001-04\\" + "DataMobil" + d.toString() + ".pdf";
-        compileProcessReport("D:\\workspace-netbeans\\TB1573001-04\\Report Mobil1.jrxml", file);
+        String file = "D:\\WorkSpace\\Netbeans-WorkSpace\\TB1573001-04\\" + "DataMobil" + ".pdf";
+        compileProcessReport("D:\\WorkSpace\\Netbeans-WorkSpace\\TB1573001-04\\Report Mobil1.jrxml", file);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         Date d = new Date();
-        String file = "D:\\workspace-netbeans\\TB1573001-04\\" + "PeminjamanPengembalian" + d.toString() + ".pdf";
-        compileProcessReport("D:\\workspace-netbeans\\TB1573001-04\\Daat peminjamanPengembalian1.jrxml", file);
+        String file = "D:\\WorkSpace\\Netbeans-WorkSpace\\TB1573001-04\\" + "PeminjamanPengembalian"  + ".pdf";
+        compileProcessReport("D:\\WorkSpace\\Netbeans-WorkSpace\\TB1573001-04\\Daat peminjamanPengembalian1.jrxml", file);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Date d = new Date();
-        String file = "D:\\workspace-netbeans\\TB1573001-04\\" + "DataKaryawan" + d.toString() + ".pdf";
-        compileProcessReport("D:\\workspace-netbeans\\TB1573001-04\\Data karyawan1.jrxml", file);
+        String file = "D:\\WorkSpace\\Netbeans-WorkSpace\\TB1573001-04\\" + "DataKaryawan" + ".pdf";
+        compileProcessReport("D:\\WorkSpace\\Netbeans-WorkSpace\\TB1573001-04\\Data karyawan1.jrxml", file);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Date d = new Date();
-        String file = "D:\\workspace-netbeans\\TB1573001-04\\" + "DataPeminjaman" + d.toString() + ".pdf";
-        compileProcessReport("D:\\workspace-netbeans\\TB1573001-04\\Data peminjam1.jrxml", file);
+        String file = "D:\\WorkSpace\\Netbeans-WorkSpace\\TB1573001-04\\" + "DataPeminjaman"  + ".pdf";
+        compileProcessReport("D:\\WorkSpace\\Netbeans-WorkSpace\\TB1573001-04\\Data peminjam1.jrxml", file);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
