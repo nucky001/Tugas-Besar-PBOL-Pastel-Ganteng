@@ -16,7 +16,7 @@ public class ListPegawai extends javax.swing.JFrame {
     DefaultTableModel tab = new DefaultTableModel(col,0);
     int a = -1;
     PegawaiDAO daoP = new PegawaiDAO();
-
+    //id security, nama security, alamat, contact, jumlah, biaya
     public ListPegawai() {
         initComponents();
         setLocationRelativeTo(null);
